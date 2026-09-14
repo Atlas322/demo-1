@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="mn">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Zero Трейлер</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+  :root {
+    --paper: #f4f6f8;
+    --surface: #ffffff;
+    --ink: #22272e;
+    --muted: #5b6472;
+    --line: #dfe4ea;
+    --accent: #d9483b;
+    --accent-ink: #b2372c;
+    --accent-soft: #faecea;
+    --chip-bg: #22272e;
+    --chip-ink: #ffffff;
+    --code-bg: #eceff3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #15181d;
+      --surface: #1d2127;
+      --ink: #e7eaee;
+      --muted: #98a1ad;
+      --line: #2d333c;
+      --accent: #e56a5d;
+      --accent-ink: #ef8578;
+      --accent-soft: #33221f;
+      --chip-bg: #e7eaee;
+      --chip-ink: #15181d;
+      --code-bg: #262b33;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #15181d;
+    --surface: #1d2127;
+    --ink: #e7eaee;
+    --muted: #98a1ad;
+    --line: #2d333c;
+    --accent: #e56a5d;
+    --accent-ink: #ef8578;
+    --accent-soft: #33221f;
+    --chip-bg: #e7eaee;
+    --chip-ink: #15181d;
+    --code-bg: #262b33;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Golos Text", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 48px 20px 80px;
+  }
+  .wrap { max-width: 800px; margin: 0 auto; }
+
+  .kicker {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .kicker::before {
+    content: "";
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: rec 1.6s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) { .kicker::before { animation: none; } }
+  @keyframes rec { 0%,100% { opacity: 1 } 50% { opacity: .25 } }
+
+  h1 {
+    font-family: "Unbounded", "Golos Text", sans-serif;
+    font-weight: 700;
+    font-size: clamp(26px, 5vw, 40px);
+    line-height: 1.15;
+    margin: 0 0 10px;
+    text-wrap: balance;
+  }
+  .sub { color: var(--muted); max-width: 62ch; margin: 0 0 24px; }
+
+  .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 48px; }
+  .meta span {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12.5px;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--muted);
+  }
+  .meta b { color: var(--ink); font-weight: 600; }
+
+  h2 {
+    font-family: "Unbounded", "Golos Text", sans-serif;
+    font-weight: 500;
+    font-size: 19px;
+    margin: 56px 0 8px;
+  }
+  .lede { color: var(--muted); margin: 0 0 24px; max-width: 65ch; }
+
+  .formula { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+  .formula div {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .formula strong { display: block; font-size: 14.5px; margin-bottom: 4px; }
+  .formula p { margin: 0; font-size: 13.5px; color: var(--muted); line-height: 1.5; }
+
+  .bar {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    margin: 20px 0 6px;
+    height: 34px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+  }
+  .bar div {
+    display: flex; align-items: center; justify-content: center;
+    color: var(--chip-ink);
+    background: var(--chip-bg);
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 1px solid var(--paper);
+  }
+  .bar div:last-child { border-right: none; }
+  .bar .hot { background: var(--accent); color: #fff; }
+  .bar-note { font-size: 12.5px; color: var(--muted); font-family: "JetBrains Mono", monospace; margin-bottom: 8px; }
+
+  .shot {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+  .shot-head {
+    display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px 14px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  .tc {
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--accent-ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .shot-title { font-weight: 700; font-size: 15.5px; }
+  .dur { margin-left: auto; font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--muted); }
+  .shot-body { padding: 16px 20px 18px; display: grid; gap: 14px; }
+
+  .row { display: grid; grid-template-columns: 92px 1fr; gap: 14px; align-items: start; }
+  @media (max-width: 540px) { .row { grid-template-columns: 1fr; gap: 4px; } }
+  .row-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 4px;
+  }
+  .vo { font-size: 16.5px; font-weight: 500; line-height: 1.55; margin: 0; }
+  .vo em { font-style: normal; color: var(--accent-ink); }
+  .vis { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.55; }
+  .vis b { color: var(--ink); font-weight: 600; }
+  .cap {
+    display: inline-block;
+    background: var(--chip-bg);
+    color: var(--chip-ink);
+    font-weight: 700;
+    font-size: 13.5px;
+    padding: 5px 12px;
+    border-radius: 6px;
+  }
+  .cap.hot { background: var(--accent); color: #fff; }
+  .note {
+    font-size: 13px;
+    color: var(--muted);
+    background: var(--accent-soft);
+    border-radius: 8px;
+    padding: 9px 13px;
+    margin: 0;
+  }
+  .note b { color: var(--accent-ink); }
+
+  ul.check { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
+  ul.check li {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    padding: 11px 15px 11px 40px;
+    position: relative;
+    font-size: 14.5px;
+  }
+  ul.check li::before {
+    content: "";
+    position: absolute;
+    left: 14px; top: 16px;
+    width: 14px; height: 14px;
+    border: 2px solid var(--accent);
+    border-radius: 4px;
+  }
+  ul.check b { font-weight: 600; }
+  ul.check .mono { font-family: "JetBrains Mono", monospace; font-size: 13px; background: var(--code-bg); padding: 1px 6px; border-radius: 4px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+  .col h3 {
+    font-size: 13px;
+    font-family: "JetBrains Mono", monospace;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 12px;
+  }
+
+  footer {
+    margin-top: 64px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--muted);
+  }
+</style>
+
+<div class="wrap">
+  <p class="kicker">Зураг авалтын сценари · v2</p>
+  <h1>Project Zero — 90 секундын трейлер</h1>
+  <p class="sub">"Асуудал → Хурцатгал → Асуулт → Шийдэл" бүтэцтэй зохиол: гараар хийж буй ажлын зовлонгоос эхэлж, Agent Studio демогийн кадруудаар шийдлийг харуулна. Загвар: Jeff Su — хурдтай jump cut, товч caption, punch-in.</p>
+
+  <div class="meta">
+    <span>Урт: <b>1:30</b></span>
+    <span>Унших үг: <b>~195</b> (2.1 үг/сек)</span>
+    <span>Кадр: <b>6 хэсэг</b></span>
+    <span>Бүтэц: <b>Асуудал → Шийдэл</b></span>
+  </div>
+
+  <h2>Зохиолын 4 үе шат</h2>
+  <div class="formula">
+    <div><strong>1 · Асуудал</strong><p>Гараар хийж буй ажлууд — өдөрт хэдэн цаг алдаж байгааг үзүүлнэ.</p></div>
+    <div><strong>2 · Хурцатгал</strong><p>AI ашиглъя гэвч мэдэхгүй, итгэхгүй — тэгээд л өөрөө хийсээр.</p></div>
+    <div><strong>3 · Асуулт</strong><p>"Бүтээмжээ яг эндээс алдаад байгаа юм биш биз дээ?"</p></div>
+    <div><strong>4 · Шийдэл</strong><p>Манай сургалтаар ийм ийм зүйл бүтээж сурна + CTA.</p></div>
+  </div>
+
+  <h2>Хугацааны зураглал</h2>
+  <div class="bar" role="img" aria-label="90 секундын хуваарилалт">
+    <div style="flex:18">АСУУДАЛ</div>
+    <div style="flex:15">ХУРЦАТГАЛ</div>
+    <div class="hot" style="flex:8">АСУУЛТ</div>
+    <div style="flex:34">ШИЙДЭЛ</div>
+    <div style="flex:8">КОД</div>
+    <div class="hot" style="flex:7">CTA</div>
+  </div>
+  <p class="bar-note">0:00 ─────────────────────────── 1:30</p>
+
+  <h2>Зохиол — кадр кадраар</h2>
+  <p class="lede">Эхний 2 кадр бодит амьдралын бичлэг (b-roll) шаардана — өөрийгөө эсвэл туслахаа ширээний ард ажиллаж байгаагаар нь утсаар бичихэд хангалттай. 4-6-р кадр Agent Studio демогоос гарна.</p>
+
+  <!-- SHOT 1 -->
+  <div class="shot">
+    <div class="shot-head"><span class="tc">0:00</span><span class="shot-title">АСУУДАЛ — гараар хийсээр өнгөрдөг өдөр</span><span class="dur">18 сек</span></div>
+    <div class="shot-body">
+      <div class="row"><span class="row-label">Дэлгэцэнд</span>
+        <p class="vis"><b>Бодит b-roll монтаж</b> (кадр бүр 3–4 сек): ① хүн утсан дээрээ FB чатын олон мессежийг нэг нэгээр нь бичиж хариулж байна ② дэлгэц: захиалгын мэдээллийг чатаас Excel рүү гараар хуулж байна ③ ижил хариултыг дахин бичиж байна (өмнөх мессежтэй зэрэгцүүлж харуул) ④ цаг 22:40 болсныг харуулна. Өнгө бүүдгэр, хөгжим намуун — "ядарсан" уур амьсгал.</p></div>
+      <div class="row"><span class="row-label">Хэлэх үг</span>
+        <p class="vo">Өдөр бүр ижлээ давтана: чатанд нэг нэгээр нь хариулна… захиалгаа гараараа Excel-д буулгана… зуу дахь удаагаа ижил хариултаа бичнэ. Ингэсээр өдрийн <em>гурав, дөрвөн цаг</em> чинь чимээгүйхэн алга болно.</p></div>
+      <div class="row"><span class="row-label">Caption</span>
+        <div><span class="cap">Өдөрт −3~4 цаг</span></div></div>
+    </div>
+  </div>
+
+  <!-- SHOT 2 -->
+  <div class="shot">
+    <div class="shot-head"><span class="tc">0:18</span><span class="shot-title">ХУРЦАТГАЛ — мэдэхгүй, итгэхгүй, өөрөө л хийнэ</span><span class="dur">15 сек</span></div>
+    <div class="shot-body">
+      <div class="row"><span class="row-label">Дэлгэцэнд</span>
+        <p class="vis"><b>Бодит b-roll:</b> ① хүн ChatGPT нээгээд юу бичихээ мэдэхгүй хэсэг сууна ② хагас дутуу асуулт бичээд гарсан хариултыг харан толгой сэгсэрнэ ③ табаа хаагаад… буцаад чатаа гараар хариулж эхэлнэ. Сүүлийн кадр дээр удаан zoom-out — "мухардал" мэдрэмж.</p></div>
+      <div class="row"><span class="row-label">Хэлэх үг</span>
+        <p class="vo">AI ашиглах хэрэгтэйг та мэднэ. Гэхдээ <em>хаанаас эхлэхээ мэдэхгүй</em>. Эсвэл "энэ миний ажлыг чадахгүй" гэж итгэхгүй байна. Тэгээд л… бүгдийг өөрөө хийсээр өнөөдрийг хүрлээ.</p></div>
+      <div class="row"><span class="row-label">Caption</span>
+        <div><span class="cap">Мэдэхгүй · Итгэхгүй · Өөрөө л хийнэ</span></div></div>
+    </div>
+  </div>
+
+  <!-- SHOT 3 -->
+  <div class="shot">
+    <div class="shot-head"><span class="tc">0:33</span><span class="shot-title">АСУУЛТ — эргэлтийн цэг</span><span class="dur">8 сек</span></div>
+    <div class="shot-body">
+      <div class="row"><span class="row-label">Дэлгэцэнд</span>
+        <p class="vis"><b>Багш камерт</b> анх удаа гарч ирнэ (эсвэл хар дэлгэц дээр зөвхөн текст). Хөгжим таг зогсоно — энэ чимээгүй агшин л видеоны хамгийн хүчтэй мөч. Асуултын дараа 1 секунд түр зогсолт.</p></div>
+      <div class="row"><span class="row-label">Хэлэх үг</span>
+        <p class="vo">Ажлын бүтээмжээ та <em>яг эндээс</em> алдаад байгаа юм биш биз дээ?</p></div>
+      <div class="row"><span class="row-label">Caption</span>
+        <div><span class="cap hot">Бүтээмж чинь энд алдагдаж байна</span></div></div>
+    </div>
+  </div>
+
+  <!-- SHOT 4 -->
+  <div class="shot">
+    <div class="shot-head"><span class="tc">0:41</span><span class="shot-title">ШИЙДЭЛ — сургалтаар юу бүтээж сурах вэ</span><span class="dur">34 сек</span></div>
+    <div class="shot-body">
+      <div class="row"><span class="row-label">Дэлгэцэнд</span>
+        <p class="vis">Хөгжим сэргэг болж, өнгө гэрэлтэнэ. <b>Agent Studio демогийн кадрууд</b> VO-гийн дарааллаар (тус бүр 6–8 сек):
+        ① <b>Наран Шоп чат</b> — асуултад агент шууд хариулж, захиалга баталгаажина
+        ② <b>Танилцуулга бот</b> — PDF чип + алхмууд ажиллаад хариулна
+        ③ <b>Автоматууд</b> — хүсэлт бичихэд процессын гинж угсарч "идэвхжлээ" болно
+        ④ <b>Хяналтын самбар</b> — тоонууд амилж, toast гарна. Кадр бүрд жижиг caption солигдоно.</p></div>
+      <div class="row"><span class="row-label">Хэлэх үг</span>
+        <p class="vo">Project Zero сургалтаар бид үүнийг өөрчлөхийг заана. Кодны <em>тэгээс</em> эхлээд та: хэрэглэгчдэд 24 цагийн турш хариулдаг чат-бот… баримтыг чинь уншаад асуултад хариулдаг туслах… "шинэ захиалга ирэхэд имэйл илгээ" гэж <em>энгийн үгээр хэлэхэд л</em> автомат үүсгэдэг систем… бүх ажлаа нэг дэлгэцээс хянадаг самбар — эдгээрийг <em>өөрийн гараар</em> бүтээж сурна.</p></div>
+      <div class="row"><span class="row-label">Caption</span>
+        <div><span class="cap">24/7 чат-бот</span> <span class="cap">Баримтаас хариулагч</span> <span class="cap">Автомат process</span> <span class="cap">Хяналтын самбар</span></div></div>
+      <p class="note"><b>Анхаар:</b> Технологийн нэр (LangChain, Python…) энд бүү дурд — юу <b>чадахыг</b> нь л хэл. Кадр бүр демогийн "ажиллаж байгаа" мөчөөс эхэлсэн байх ёстой — цэс, хоосон дэлгэц бүү оруул.</p>
+    </div>
+  </div>
+
+  <!-- SHOT 5 -->
+  <div class="shot">
+    <div class="shot-head"><span class="tc">1:15</span><span class="shot-title">БАТАЛГАА — ард нь код</span><span class="dur">8 сек</span></div>
+    <div class="shot-body">
+      <div class="row"><span class="row-label">Дэлгэцэнд</span>
+        <p class="vis"><b>"Ард талд" дэлгэц:</b> товч дарахад код гэрэлтэж, лог урсана (3–4 сек), дараа нь "Систем" дэлгэцийн 6 panel 2 секунд.</p></div>
+      <div class="row"><span class="row-label">Хэлэх үг</span>
+        <p class="vo">Энэ ид шид биш. Энэ бол таны <em>бичиж сурах</em> хэдхэн мөр код.</p></div>
+      <div class="row"><span class="row-label">Caption</span>
+        <div><span class="cap">Та өөрөө бичнэ</span></div></div>
+    </div>
+  </div>
+
+  <!-- SHOT 6 -->
+  <div class="shot">
+    <div class="shot-head"><span class="tc">1:23</span><span class="shot-title">CTA</span><span class="dur">7 сек</span></div>
+    <div class="shot-body">
+      <div class="row"><span class="row-label">Дэлгэцэнд</span>
+        <p class="vis"><b>Бүтэн дэлгэцийн график:</b> хөтөлбөрийн нэр, эхлэх огноо, бүртгэлийн линк/QR. Нэг л үйлдэл.</p></div>
+      <div class="row"><span class="row-label">Хэлэх үг</span>
+        <p class="vo">Project Zero — Code the Future. Гараа автоматжуулж, <em>цагаа буцааж ав</em>. Бүртгэл — доорх линкээр.</p></div>
+      <div class="row"><span class="row-label">Caption</span>
+        <div><span class="cap hot">Бүртгүүлэх → [линк]</span></div></div>
+    </div>
+  </div>
+
+  <h2>Jeff Su форматын 4 дүрэм</h2>
+  <div class="formula">
+    <div><strong>Cold open</strong><p>Лого, оршилгүй — 0 дахь секундээс шууд асуудлын кадр.</p></div>
+    <div><strong>Jump cut 3–7 сек</strong><p>Амьсгааны завсарлага бүгдийг хайчил. Нэг өгүүлбэр = нэг кадр.</p></div>
+    <div><strong>Punch-in</strong><p>Улаанаар тэмдэглэсэн үг дээр 10–15% zoom. 3-р кадрын асуулт дээр заавал.</p></div>
+    <div><strong>Keyword caption</strong><p>2–4 үгтэй товч бичвэр, нэг л өнгө, нэг байрлал.</p></div>
+  </div>
+
+  <h2>Зураг авалтаас өмнө бэлдэх зүйлс</h2>
+  <ul class="check">
+    <li><b>Бодит b-roll (Кадр 1–2):</b> ширээний ард чат хариулж, Excel хөтөлж буй 4 богино бичлэг + ChatGPT нээгээд эргэлзэж буй 3 бичлэг. Утсаар, байгалийн гэрэлд — "гоё" биш, "бодит" харагдах ёстой.</li>
+    <li><b>Демогийн бичлэгүүд (Кадр 4–5):</b> <span class="mono">demo/agent-studio.html</span>-ээс: Наран Шоп чат (захиалга хүртэл) · Танилцуулга бот · Автомат үүсэх · Самбар нээгдэх · Ард талд мөчлөг · Систем 2 сек. Бүгдийг 1.5–2x хурдасгана.</li>
+    <li><b>Дэлгэцээ цэвэрлэ:</b> мэдэгдэл унтраа, бүтэн дэлгэц (Cmd+Ctrl+F), демог урьдчилж Esc-ээр цэвэрхэн эхлэлд аваач.</li>
+    <li><b>VO-г тусад нь бичье:</b> 195 үгийг эхлээд цэвэрхэн бичээд кадраа дуун дээр эвлүүлэх нь хялбар. 3-р кадрын асуултын өмнө/дараа түр зогсолтоо мартуузай.</li>
+  </ul>
+
+  <h2>Эвлүүлэг ба нийтлэх</h2>
+  <div class="two-col">
+    <div class="col">
+      <h3>Эвлүүлгийн дүрэм</h3>
+      <ul class="check">
+        <li>Хөгжим: Кадр 1–2 намуун/бүүдгэр → Кадр 3 дээр таг зогсоно → Кадр 4-өөс эрч хүчтэй. Энэ тодосгол л видеоны сэтгэл хөдлөлийг бүтээнэ.</li>
+        <li>Өнгө: Кадр 1–2-ыг бага зэрэг бүүдгэр (desaturate), Кадр 4-өөс гэрэлтэй болго — "өмнө/дараа" мэдрэмж.</li>
+        <li>Caption нэг фонт, нэг байрлал, 0.15 сек fade.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3>Нийтлэхдээ</h3>
+      <ul class="check">
+        <li>Эхний кадр (thumbnail): ядарсан хүн + чатын овоо мессеж, "Өдөрт −4 цаг" бичвэр.</li>
+        <li>9:16 хувилбар: ижил VO, босоо тайрч Reels/TikTok-д. Демо кадруудад утасны горим (📱 товч) ашигла.</li>
+        <li>Дуугүй үзэхэд ойлгомжтой эсэхийг шалга — caption-ууд түүхийг өөрөө ярьдаг байх ёстой.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>Project Zero: Code the Future · Трейлерийн зохиол v2 — Асуудал → Шийдэл · 2026-09-14</footer>
+</div>
